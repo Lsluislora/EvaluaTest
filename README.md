@@ -6,7 +6,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="http://luislora.dev/wp-content/uploads/2024/02/HomePage-2.png" alt="project-screenshot" width="400" height="800/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/UserPage.png" alt="project-screenshot" width="400" height="800/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/CreaTestPage-1.png" alt="project-screenshot" width="400" height="800/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/listOfTestPage.png" alt="project-screenshot" width="400" height="800/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/questionsPage.png" alt="project-screenshot" width="400" height="800/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/resultTestPage.png" alt="project-screenshot" width="400" height="800/">
+<img src="http://luislora.dev/wp-content/uploads/2024/02/HomePage-2.png" alt="project-screenshot" width="300" height="600/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/UserPage.png" alt="project-screenshot" width="300" height="600/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/CreaTestPage-1.png" alt="project-screenshot" width="300" height="600/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/listOfTestPage.png" alt="project-screenshot" width="300" height="600/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/questionsPage.png" alt="project-screenshot" width="300" height="600/"> <img src="http://luislora.dev/wp-content/uploads/2024/02/resultTestPage.png" alt="project-screenshot" width="300" height="600/">
 
 <h2>🛠️ Installation Steps:</h2>
 
