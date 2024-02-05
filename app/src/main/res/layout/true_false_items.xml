@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/idCardViewTrueFalseQuestions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:backgroundTint="@color/colorTintQuestionsCardView"
+    android:elevation="8dp"
+    app:cardCornerRadius="4dp">
+
+
+    <LinearLayout
+        android:id="@+id/idLayoutVF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ProgressBar
+                    android:id="@+id/progressBarTrueFalse"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="16dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressBackgroundTint="@color/colorProgressBackground"
+                    android:progressTint="@color/colorProgress" />
+
+                <TextView
+                    android:id="@+id/progressTextTrueFalse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progressBarTrueFalse"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="0/0 preguntas respondidas" />
+            </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/idQuestionTF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/choices_layout"
+            android:layout_marginTop="15dp"
+            android:text="Esta será la pregunta"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/iconResultCorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_ok_answer" />
+
+            <ImageView
+                android:id="@+id/iconResultIncorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iconResultCorrect"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-191dp"
+                android:visibility="gone"
+                android:scaleX="0.4"
+                android:scaleY="0.4"
+                app:srcCompat="@drawable/ic_incorrect_answer" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/choices_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/idTrueAnswerTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/spinner_bg"
+                android:text="Verdadero"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/idFalseAnswerTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/spinner_bg"
+                android:text="Falso"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

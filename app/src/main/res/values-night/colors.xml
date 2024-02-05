@@ -1,0 +1,16 @@
+<resources>
+    <!-- Colores Tema Oscuro -->
+    <color name="colorBackground">#424949</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorAccent">#2C3E50</color>
+    <color name="background_layout">#3c3c3c</color>
+    <color name="background_layout_user_data">#2C3E50</color>
+
+    <!-- Otros colores -->
+    <color name="colorTintQuestionsCardView">#424949</color>
+    <color name="colorTransparent">#424949</color>
+    <color name="colorFinalResultCardView">#2C3E50</color>
+
+
+
+</resources>

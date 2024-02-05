@@ -1,0 +1,671 @@
+@startuml
+
+
+package "com.example.myexampleevaluatest" {
+    class DBHelper {
+        + checkUserCredentials(username: String, password: String): boolean
+        + getUserName(username: String, password: String): String
+        + getUserEMail(username: String, password: String): String
+        + getUserID(username: String, password: String): String
+        + getCountOfTestsForUser(userId: String): int
+        + getNumber(userId: String): int
+        + addNewTest(...): void
+        + addNewQuestionsTF(...): void
+        + addNewQuestionsSM(...): void
+        + addNewCorrectAnwserSM(...): void
+        + addNewQuestionsTT(...): void
+        + addNewCorrectAnwserTT(...): void
+        + readTests(): ArrayList<TestData>
+    }
+
+ class TestData implements Serializable {
+   -String userID
+   -String strTestTitle
+   -String strTestDuration
+   -String strTestCategory
+   -String courseDescription
+   -String testTypeTest
+   -int id
+   -String identificadorUnicoDelTest
+   +getIdentificadorUnicoDelTest(): String
+   +setIdentificadorUnicoDelTest(identificadorUnicoDelTest: String): void
+   +getStrTestTitle(): String
+   +setStrTestTitle(strTestTitle: String): void
+   +getStrTestDuration(): String
+   +setStrTestDuration(strTestDuration: String): void
+   +getStrTestCategory(): String
+   +setStrTestCategory(strTestCategory: String): void
+   +getCourseDescription(): String
+   +setCourseDescription(courseDescription: String): void
+   +getId(): int
+   +setId(id: int): void
+   +getUserID(): String
+   +getTestTypeTest(): String
+   +setTestTypeTest(testTypeTest: String): void
+   +setUserID(userID: String): void
+   +TestData(strTestTitle: String, strTestDuration: String, strTestCategory: String, courseDescription: String, userID: String, typeTest: String, idUnico: String)
+ }
+
+
+        class TestAdapter {
+          - testDataArrayList: ArrayList<TestData>
+          - context: Context
+          - cardView: CardView
+          - dbHelper: DBHelper
+          - deleteListener: OnTestDeleteListener
+          - testClickListener: OnTestClickListener
+          - currentViewHolder: ViewHolder
+          + OnItemClickListener
+          + OnTestDeleteListener
+          + setOnTestDeleteListener(listener: OnTestDeleteListener)
+          + OnTestClickListener
+          + setOnTestClickListener(listener: OnTestClickListener)
+          + onCreateViewHolder(parent: ViewGroup, viewType: int): ViewHolder
+          + onBindViewHolder(holder: ViewHolder, position: int)
+          + getItemCount(): int
+          + showConfirmationOpenTest()
+          + showConfirmationDeleteTest()
+          + openFragmentForTest(context: Context, testData: TestData)
+          + setTestList(listaDePruebas: List<TestData>)
+          + getTestList(): ArrayList<TestData>
+
+          class ViewHolder {
+            - cardView: CardView
+            - courseNameTV: TextView
+            - courseDescTV: TextView
+            - courseDurationTV: TextView
+            - courseTracksTV: TextView
+            - idUserTV: TextView
+            - TypeTestTV: TextView
+            - btnDeleteTest: ImageButton
+            + ViewHolder(itemView: View)
+    }
+
+    class UserDataFragment {
+        - view: View
+        - dbHelper: DBHelper
+        - textViewFinishTest: TextView
+        - LogInLogOut: TextView
+        - EditUserData: TextView
+        - cardViewLogIngSignUp: CardView
+        + onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View
+        - navigateToLoginScreen(): void
+    }
+
+    class CreaTestFragment {
+        - dbHelper: DBHelper
+        - editTextCount: int
+        - testNameEdt: EditText
+        - spinnerCategoryTest: Spinner
+        - testDurationEdt: EditText
+        - testDescriptionEdt: EditText
+        - myTestIdUserID: EditText
+        - spinnerTypeTest: Spinner
+        - addCourseBtn: Button
+        - readCourseBtn: Button
+        - addNewQuestionTF: Button
+        - deleteQuestionTF: Button
+        - addNewQuestionSM: Button
+        - deleteQuestionSM: Button
+        - addNewQuestionTT: Button
+        - deleteQuestionTT: Button
+        - testModalArrayList: ArrayList<TestData>
+        - testAdapter: TestAdapter
+        + onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View
+    }
+
+
+class SelecMultTestData {
+  -int id
+  -String identificadorUnicoDelTestSM
+  -String question
+  -String option_one
+  -String option_two
+  -String option_three
+  -String option_four
+  -String totalQuestion
+  +getIdentificadorUnicoDelTestTF(): String
+  +setIdentificadorUnicoDelTestTF(identificadorUnicoDelTestTF: String): void
+  +getQuestion(): String
+  +setQuestion(question: String): void
+  +getOption_one(): String
+  +setOption_one(option_one: String): void
+  +getOption_two(): String
+  +setOption_two(option_two: String): void
+  +getOption_three(): String
+  +setOption_three(option_three: String): void
+  +getOption_four(): String
+  +setOption_four(option_four: String): void
+  +getId(): int
+  +setId(id: int): void
+  +getTotalQuestion(): String
+  +setTotalQuestion(totalQuestion: String): void
+  +SelecMultTestData(id: int, identificadorUnicoDelTestSM: String, question: String, option_one: String, option_two: String, option_three: String, option_four: String)
+}
+
+class QuestionsSelectMultAdapter {
+  - questionsModalArrayList: ArrayList<SelecMultTestData>
+  - context: Context
+  + QuestionsSelectMultAdapter(questionsModalArrayList: ArrayList<SelecMultTestData>, context: Context)
+  + onCreateViewHolder(...)
+  + onBindViewHolder(...)
+  + getItemCount(): int
+  + showFinalResultsSelMul(cardView: CardView)
+}
+
+
+class QuestionsTestTypeAdapter {
+  -ArrayList<TestTypeTestData> testTypeTestDataArrayList
+  -Context context
+  -DBHelper dbHelper
+  -ArrayList<Boolean> answerStates
+  -int correctCount
+  -int incorrectCount
+  -boolean isConfirmationButtonClicked
+  -boolean isConfirmationButtonPressed
+  +QuestionsTestTypeAdapter(testTypeTestDataArrayList: ArrayList<TestTypeTestData>, context: Context)
+  +onCreateViewHolder(parent: ViewGroup, viewType: int): ViewHolder
+  +onBindViewHolder(holder: ViewHolder, position: int): void
+  +getSelectedOptions(holder: ViewHolder): List<Boolean>
+  +getItemCount(): int
+  +updateProgressBarTestType(progressBar: ProgressBar, progressText: TextView, currentPosition: int, correctCount: int): void
+  +showFinalResultsTestType(cardViewResultsTT: CardView): void
+  +updateFinalResultsProgressBarTT(progressBar: ProgressBar, count: int, totalQuestions: int): void
+  +disableRadioGroup(radioGroup: RadioGroup): void
+  +ViewHolder(itemView: View)
+}
+
+class SeleccionMultipleFragment {
+  - questionsRV_SM: RecyclerView
+  - nextButton: ImageButton
+  - backButton: ImageButton
+  - btnShowResultsSM: Button
+  - dbHelper: DBHelper
+  - cardViewResultsSM: CardView
+  - currentPosition: int
+  + onCreateView(...)
+  + updateButtonVisibility()
+}
+
+
+
+class SelecMultTestData {
+  - question: String
+  - optionOne: String
+  - optionTwo: String
+  - optionThree: String
+  - optionFour: String
+  - correctAnswer: String
+}
+
+class QuestionsSelectMultAdapter {
+  - questionsModalArrayList: ArrayList<SelecMultTestData>
+  - context: Context
+  + QuestionsSelectMultAdapter(questionsModalArrayList: ArrayList<SelecMultTestData>, context: Context)
+  + onCreateViewHolder(...)
+  + onBindViewHolder(...)
+  + getItemCount(): int
+  + showFinalResultsSelMul(cardView: CardView)
+}
+
+class SeleccionMultipleFragment {
+  - questionsRV_SM: RecyclerView
+  - nextButton: ImageButton
+  - backButton: ImageButton
+  - btnShowResultsSM: Button
+  - dbHelper: DBHelper
+  - cardViewResultsSM: CardView
+  - currentPosition: int
+  + onCreateView(...)
+  + updateButtonVisibility()
+}
+
+class TestTypeTestData {
+  - question: String
+  - optionOne: String
+  - optionTwo: String
+  - optionThree: String
+  - optionFour: String
+  - correctAnswer: String
+}
+
+
+
+class TestTypeFragment {
+  - questionsTestTypeAdapter: QuestionsTestTypeAdapter
+  - currentPosition: int
+  - questionsRVTT: RecyclerView
+  - nextButtonTT: ImageButton
+  - backButtonTT: ImageButton
+  - btnShowResultsTT: Button
+  - dbHelper: DBHelper
+  - radioGroup: RadioGroup
+  - cardViewResultsTT: CardView
+  + onCreateView(...)
+  + updateButtonVisibility()
+  + mostrarDatosEnRadioButtons(datos: ArrayList<TestTypeTestData>)
+}
+
+class UserDataFragment {
+  - view: View
+  - dbHelper: DBHelper
+  - LogInLogOut: TextView
+  - EditUserData: TextView
+  - cardViewEditNewUser: CardView
+  - cardViewTestData: CardView
+  - buttonCancel: Button
+  - buttonConfirmUpdate: Button
+  - editTextNewName: TextView
+  - editTextNewUsername: TextView
+  - editTextNewEmail: TextView
+  - editTextNewPassword: TextView
+  - tv_name_user_data: TextView
+  - idUserEmailData: TextView
+  - idUserIdData: TextView
+  - sessionManager: SessionManager
+  - bottomNavigationView: BottomNavigationView
+  - toolbar: Toolbar
+  + onCreateView(...)
+  + updateLoginStatus(username: String, isLoggedIn: boolean)
+  + logout()
+  + clearSessionData()
+  + navigateToLoginScreen()
+  + navigateToMainScreen()
+}
+
+
+
+class UserGuideFragment {
+  + newInstance(param1: String, param2: String): UserGuideFragment
+  + onCreate(savedInstanceState: Bundle)
+  + onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View
+}
+
+
+
+class UserLogSingFragment {
+    -DBHelper dbHelper
+    -SessionManager sessionManager
+    +onCreate(Bundle): void
+    +onCreateView(LayoutInflater, ViewGroup, Bundle): View
+    +checkCredentials(String, String): boolean
+    +registerUser(EditText, EditText, EditText, EditText, EditText): void
+    +saveUserDataToSharedPreferences(String, String): void
+}
+
+
+class SessionManager {
+    -SharedPreferences preferences
+    +isLoggedIn(): boolean
+    +setLogin(String): void
+}
+
+
+class VerdaderoFalsoFragment {
+  -RecyclerView questionsRV
+  -Button btnShowResults
+  -ImageButton backButton
+  -ImageButton nextButton
+  -QuestionsTrueFalseAdapter questionsRVAdapter
+  -CardView cardViewResultsTF
+  -int currentPosition
+  +onCreate(Bundle): void
+  +onCreateView(LayoutInflater, ViewGroup, Bundle): View
+  +updateButtonVisibility(): void
+}
+
+class VerTestFragment {
+  -DBHelper dbHelper
+  -TestAdapter testAdapter
+  -EditText editTextSerch
+  +onCreate(Bundle): void
+  +onCreateView(LayoutInflater, ViewGroup, Bundle): View
+  +searchInDatabase(String): void
+  +updateUIForTests(List<TestData>): void
+}
+
+
+class MainActivity {
+  -NavController navController
+  -TestTypeFragment testTypeFragment
+  -Toolbar toolbar
+  -BottomNavigationView bottomNavigationView
+  -DBHelper dbHelper
+  -SessionManager sessionManager
+  +onCreate(Bundle): void
+  +onCreateOptionsMenu(Menu): boolean
+  +onOptionsItemSelected(MenuItem): boolean
+  +setupToolbar(): void
+  +actualizarContadorEnBottomNav(int): void
+  +setupBottonNavigation(): void
+  +selectBottomNavigationItem(int): void
+  +hideToolbar(): void
+  +showToolbar(): void
+  +hideBottomNavigation(): void
+  +showBottomNavigation(): void
+  +onBackPressed(): void
+  +clearSessionData(): void
+  +navigateToLoginScreen(): void
+  +updateLoginStatus(String, boolean): void
+  +logout(): void
+}
+
+
+
+class SessionManager {
+  +SessionManager(Context)
+  +isLoggedIn(): boolean
+  +logout(): void
+}
+
+class QuestionsSelectMultAdapter {
+  -ArrayList<SelecMultTestData> selecMultTestDataArrayList
+  -Context context
+  -DBHelper dbHelper
+  -ArrayList<Boolean> answerStates
+  -int correctCount
+  -int incorrectCount
+  +QuestionsSelectMultAdapter(ArrayList<SelecMultTestData>, Context)
+  +onCreateViewHolder(ViewGroup, int): ViewHolder
+  +onBindViewHolder(ViewHolder, int): void
+  +getSelectedOptions(ViewHolder): List<Boolean>
+  +setCheckBoxesEnabled(ViewHolder, boolean): void
+  +getItemCount(): int
+  +updateProgressBarSelMult(ProgressBar, TextView, int): void
+  +showFinalResultsSelMul(CardView): void
+  +updateFinalResultsProgressBarSM(ProgressBar, int, int): void
+  +ViewHolder(itemView: View, recyclerView: RecyclerView)
+
+
+class ViewHolder {
+  -Button confirmButton
+  -ProgressBar progressBarSelMul
+  -Handler handler
+  -ImageView iconResultCorrect
+  -ImageView iconResultIncorrect
+  -TextView questionsTV
+  -TextView progressTextSelMul
+  -CheckBox optionOne
+  -CheckBox optionTwo
+  -CheckBox optionThree
+  -CheckBox optionFour
+  -CardView cardViewResultsSM
+  -RecyclerView recyclerView
+  +ViewHolder(itemView: View, recyclerView: RecyclerView)
+    }
+
+
+
+
+
+class QuestionsTrueFalseAdapter {
+  -ArrayList<TrueFalseTestData> trueFalseTestDataArrayList
+  -Context context
+  -DBHelper dbHelper
+  -ArrayList<Boolean> answerStates
+  -int correctCount
+  -int incorrectCount
+  -boolean isConfirmationButtonPressed
+  +QuestionsTrueFalseAdapter(trueFalseTestDataArrayList: ArrayList<TrueFalseTestData>, context: Context)
+  +onCreateViewHolder(parent: ViewGroup, viewType: int): ViewHolder
+  +onBindViewHolder(holder: ViewHolder, position: int): void
+  +disableTrueFalseButtons(holder: ViewHolder): void
+  +getItemCount(): int
+  +updateProgressBarTrueFalse(progressBar: ProgressBar, progressText: TextView, currentPosition: int, correctCount: int): void
+  +showResultIcon(resultIcon: ImageView, iconResource: int, isCorrect: boolean): void
+  +showFinalResultsTrueFalse(cardViewResultsTF: CardView): void
+  +updateFinalResultsProgressBarSM(progressBar: ProgressBar, count: int, totalQuestions: int): void
+  +clearRadioButtons(): void
+  +ViewHolder(itemView: View)
+
+
+class ViewHolder {
+  -TextView questionsTV
+  -Button trueButton
+  -Button falseButton
+  -ProgressBar progressBarTrueFalse
+  -TextView progressTextTrueFalse
+  -Handler handler
+  -ImageView iconResultCorrect
+  -ImageView iconResultIncorrect
+  -CardView cardViewResultsTF
+  +ViewHolder(itemView: View)
+}
+
+
+
+class DBHelper extends SQLiteOpenHelper {
+  -DB_NAME: String
+  -DB_VERSION: int
+  -TABLE_NAME: String
+  -ID_COL: String
+  -TITLE_COL: String
+  -DURATION_COL: String
+  -DESCRIPTION_COL: String
+  -CATEGORY_COL: String
+  -IDUSER_COL: String
+  -TYPETEST_COL: String
+  -ID_TEST_UNIQUE_ASOCIATION: String
+  -TABLE_NAME_TF: String
+  -ID_TEST_UNIQUE_ASOCIATION_TF: String
+  -ID_QUESTION_COL_TF: String
+  -QUESTION_COL_TF: String
+  -SELECTED_VALUE_COL_TF: String
+  -TABLE_NAME_SM: String
+  -ID_TEST_UNIQUE_ASOCIATION_SM: String
+  -ID_QUESTION_COL_SM: String
+  -QUESTION_COL_SM: String
+  -OPTION_ONE_SM: String
+  -OPTION_TWO_SM: String
+  -OPTION_THREE_SM: String
+  -OPTION_FOUR_SM: String
+  -TABLE_CORRECT_ANSWERS_SM: String
+  -ID_COL_CORRECT_ANSWER_SM: String
+  -QUESTION_CORRECT_ANSWERS_SM: String
+  -ID_TEST_UNIQUE_ASOCIATION_CORRECT_ANSWER_SM: String
+  -OPTION_ONE_CORRECT_ANSWERS_SM: String
+  -OPTION_TWO_CORRECT_ANSWERS_SM: String
+  -OPTION_THREE_CORRECT_ANSWERS_SM: String
+  -OPTION_FOUR_CORRECT_ANSWERS_SM: String
+  -TABLE_NAME_TT: String
+  -ID_TEST_UNIQUE_ASOCIATION_TT: String
+  -ID_QUESTION_COL_TT: String
+  -QUESTION_COL_TT: String
+  -OPTION_ONE_TT: String
+  -OPTION_TWO_TT: String
+  -OPTION_THREE_TT: String
+  -OPTION_FOUR_TT: String
+  -TABLE_CORRECT_ANSWERS_TT: String
+  -ID_COL_CORRECT_ANSWER_TT: String
+  -QUESTION_CORRECT_ANSWERS_TT: String
+  -ID_TEST_UNIQUE_ASOCIATION_CORRECT_ANSWER_TT: String
+  -OPTION_ONE_CORRECT_ANSWERS_TT: String
+  -OPTION_TWO_CORRECT_ANSWERS_TT: String
+  -OPTION_THREE_CORRECT_ANSWERS_TT: String
+  -OPTION_FOUR_CORRECT_ANSWERS_TT: String
+  -TABLE_NAME_USERS: String
+  -USER_ID_COL: String
+  -NAME_COL: String
+  -USERNAME_COL: String
+  -EMAIL_COL: String
+  -PASSWORD_COL: String
+  -IS_LOGGED_IN: String
+  -NUM_FINISH_TEST: String
+  -TABLE_NAME_USER_STATUS: String
+  -COLUMN_ID: String
+  -COLUMN_IS_LOGGED_IN: String
+
+  +DBHelper(Context context)
+  +onCreate(db: SQLiteDatabase): void
+  +onUpgrade(db: SQLiteDatabase, oldVersion: int, newVersion: int): void
+  +addNewTest(courseName: String, idUniqueTest: String, courseDuration: String, courseDescription: String, courseTracks: String, myIdUser: String, typeTest: String): void
+  +readTests(): ArrayList<TestData>
+  +addNewQuestionsTF(uniqueTestId: String, testQuestion: String, selectedValue: String): void
+  +addNewQuestionsSM(uniqueTestId: String, testQuestion: String, optionOne: String, optionTwo: String, optionThree: String, optionFour: String): void
+  +addNewQuestionsTT(uniqueTestId: String, testQuestion: String, optionOne: String, optionTwo: String, optionThree: String, optionFour: String): void
+  +addNewCorrectAnwserSM(uniqueTestId: String, testQuestion: String, optionOne: String, optionTwo: String, optionThree: String, optionFour: String): void
+  +addNewCorrectAnwserTT(uniqueTestId: String, testQuestion: String, optionOne: String, optionTwo: String, optionThree: String, optionFour: String): void
+
+}
+
+
+class DatabaseHelper {
+  - SQLiteDatabase db
+  + ArrayList<SelecMultTestData> readTableSelctMult(String uniqueTestId)
+  + ArrayList<TestTypeTestData> readTableTestType(String uniqueTestId)
+  + List<Boolean> getAnswerForQuestionSM(String uniqueTestId, String question)
+  + List<Boolean> getAnswerForQuestionTestType(String uniqueTestId, String question)
+  + ArrayList<TrueFalseTestData> getDataFromTableTF(String uniqueTestIdFromTable1)
+  + String getAnswerForQuestionTF(int idQuestion, String question)
+  + ArrayList<TrueFalseTestData> getAllDataFromTableTF()
+  + ArrayList<TestData> searchTests(String searchQuery)
+  + void eliminarTest(String testId)
+  + void updateLoginStatus(String username, boolean isLoggedIn)
+  + boolean getLoginStatus()
+  + void addNewUser(String name, String username, String email, String password)
+  + boolean isUserExists(String username)
+  + boolean checkUserCredentials(String username, String password)
+  + String getUserName(String username, String password)
+  + String getUserEMail(String username, String password)
+  + String getUserID(String username, String password)
+  + void updateUserData(String username, String name, String email, String password)
+  + int getCountOfTestsForUser(String userId)
+  + void addNumberOfFinishTest(String userName)
+  + int getNumberOfFinishTest(String userName)
+}
+
+class SessionManager {
+  - SharedPreferences sharedPreferences
+  - static final String PREF_NAME = "MyAppPreferences"
+  - static final String KEY_USERNAME = "username"
+  - static final String KEY_IS_LOGGED_IN = "isLoggedIn"
+  + SessionManager(Context context)
+  + void setLogin(String username)
+  + void logout()
+  + boolean isLoggedIn()
+  + String getUsername()
+  + void clearSessionData()
+}
+
+
+class TestTypeTestData {
+  - int id
+  - String question
+  - String optionOne
+  - String optionTwo
+  - String optionThree
+  - String optionFour
+  - String totalQuestion
+  - String identificadorUnicoDelTestTT
+
+  + TestTypeTestData(int id, String question, String optionOne, String optionTwo,
+                    String optionThree, String optionFour, String identificadorUnicoDelTestTT)
+  + int getId()
+  + void setId(int id)
+  + String getQuestion()
+  + void setQuestion(String question)
+  + String getOptionOne()
+  + void setOptionOne(String optionOne)
+  + String getOptionTwo()
+  + void setOptionTwo(String optionTwo)
+  + String getOptionThree()
+  + void setOptionThree(String optionThree)
+  + String getOptionFour()
+  + void setOptionFour(String optionFour)
+  + String getTotalQuestion()
+  + void setTotalQuestion(String totalQuestion)
+  + String getIdentificadorUnicoDelTestTT()
+  + void setIdentificadorUnicoDelTestTT(String identificadorUnicoDelTestTT)
+}
+
+
+class TrueFalseTestData {
+  - String question
+  - String correctAnswer
+  - int id
+  - String totalQuestion
+  - String identificadorUnicoDelTestTF
+
+  + TrueFalseTestData(int id, String question, String identificadorUnicoDelTestTF, String correctAnswer)
+  + String getQuestion()
+  + void setQuestion(String question)
+  + String getCorrectAnswer()
+  + void setCorrectAnswer(String correctAnswer)
+  + int getId()
+  + void setId(int id)
+  + String getTotalQuestion()
+  + void setTotalQuestion(String totalQuestion)
+  + String getIdentificadorUnicoDelTestTF()
+  + void setIdentificadorUnicoDelTestTF(String identificadorUnicoDelTestTF)
+}
+
+
+
+
+class HomeFragment {
+  - CardView crearTestCardView
+  - CardView userCardView
+  - CardView listTestCardView
+  - CardView userGuideCardView
+  - CardView searchTest
+  - TextView textViewUserNameHome
+  + void onCreate(Bundle savedInstanceState)
+  + View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+}
+
+HomeFragment -- DBHelper
+
+SelecMultTestData --* QuestionsSelectMultAdapter : etiqueta
+QuestionsSelectMultAdapter -- SeleccionMultipleFragment
+
+TestTypeTestData --* QuestionsTestTypeAdapter
+QuestionsTestTypeAdapter -- TestTypeFragment
+
+
+QuestionsSelectMultAdapter -- SeleccionMultipleFragment
+
+TestData --* TestAdapter
+UserDataFragment --> DBHelper
+
+
+DatabaseHelper -- SelecMultTestData
+DatabaseHelper -- TestTypeTestData
+DatabaseHelper -- TrueFalseTestData
+DatabaseHelper -- TestData
+
+
+MainActivity --|> AppCompatActivity
+MainActivity -- DBHelper
+MainActivity -- SessionManager
+MainActivity -- TestTypeFragment
+MainActivity -- UserLogSingFragment
+
+
+VerTestFragment -- DBHelper
+VerTestFragment -- TestAdapter
+VerTestFragment -- TestData
+TestAdapter --|> RecyclerView.Adapter
+
+VerdaderoFalsoFragment -- QuestionsTrueFalseAdapter
+VerdaderoFalsoFragment -- DBHelper
+VerdaderoFalsoFragment -- TrueFalseTestData
+QuestionsTrueFalseAdapter --|> RecyclerView.Adapter
+
+CreaTestFragment --> DBHelper
+CreaTestFragment --> TestAdapter
+CreaTestFragment --> TestData
+
+UserGuideFragment --|> Fragment
+
+UserDataFragment --|> Fragment
+UserDataFragment -- DBHelper
+UserDataFragment -- SessionManager
+UserDataFragment -- SQLiteDatabase
+
+DBHelper --|> SQLiteDatabase
+
+}
+@enduml
+
+
+

@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:colorPrimary">#b894ff</item>
+        <item name="android:colorAccent">#FFFFFF</item>
+    </style>
+
+    <style name="Theme.MyExampleEvaluaTest" parent="Base.Theme.MyExampleEvaluaTest" />
+</resources>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/idCardViewTrueFalseQuestions"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="4dp"
+    android:backgroundTint="@color/colorTintQuestionsCardView"
+    >
+
+    <LinearLayout
+        android:id="@+id/idLayoutTT"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/progressBarTestType"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="16dp"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="@color/colorProgress"
+                android:progressBackgroundTint="@color/colorProgressBackground" />
+
+            <TextView
+                android:id="@+id/progressTextTestType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progressBarTestType"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="0/0 preguntas respondidas" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/idQuestionTT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/choices_layout"
+            android:layout_marginTop="15dp"
+            android:text="Esta será la pregunta"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/iconResultCorrect"
+                android:layout_width="118dp"
+                android:layout_height="96dp"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                app:srcCompat="@drawable/ic_ok_answer" />
+
+            <ImageView
+                android:id="@+id/iconResultIncorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iconResultCorrect"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-191dp"
+                android:scaleX="0.4"
+                android:scaleY="0.4"
+                app:srcCompat="@drawable/ic_incorrect_answer" />
+        </RelativeLayout>
+
+        <RadioGroup
+            android:id="@+id/idRadioGroupQuestionsTT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idRBOptionOne"
+                android:text="Opción 1"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idRBOptionTwo"
+                android:text="Opción 2"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idRBOptionThree"
+                android:text="Opción 3"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idRBOptionFour"
+                android:text="Opción 4"/>/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/idBtnConfirmSelectionTT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/spinner_bg"
+            android:text="Confirmar Selección"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

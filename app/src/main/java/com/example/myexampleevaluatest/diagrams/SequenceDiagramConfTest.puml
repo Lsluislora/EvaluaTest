@@ -1,0 +1,74 @@
+@startuml
+actor Usuario as user
+
+activate user
+
+== Crear y Configurar Test ==
+user -> HomeFragment: crearYConfigurarTest()
+activate HomeFragment
+HomeFragment --> user: Mostrar formulario de creación y configuración
+deactivate HomeFragment
+
+user -> HomeFragment: agregarPreguntas(pregunta1, pregunta2, ...)
+activate HomeFragment
+HomeFragment --> user: Preguntas agregadas exitosamente
+deactivate HomeFragment
+
+user -> HomeFragment: guardarConfiguracion()
+activate HomeFragment
+HomeFragment --> user: Configuración guardada exitosamente
+deactivate HomeFragment
+
+== Crear Test ==
+user -> HomeFragment: crearTest()
+activate HomeFragment
+HomeFragment --> user: Mostrar formulario de creación
+deactivate HomeFragment
+
+user -> HomeFragment: guardarTest(nombreTest)
+activate HomeFragment
+HomeFragment --> user: Test creado exitosamente
+deactivate HomeFragment
+
+== Ver Test ==
+user -> HomeFragment: verTest()
+activate HomeFragment
+HomeFragment --> user: Mostrar lista de tests
+deactivate HomeFragment
+
+user -> TestDetailsFragment: verDetalles(testSeleccionado)
+activate TestDetailsFragment
+TestDetailsFragment --> user: Mostrar detalles del test
+deactivate TestDetailsFragment
+
+== Iniciar Test ==
+user -> TestDetailsFragment: iniciarTest(testSeleccionado)
+activate TestDetailsFragment
+TestDetailsFragment --> user: Mostrar preguntas del test
+deactivate TestDetailsFragment
+
+user -> TestDetailsFragment: responderPreguntas(respuesta1, respuesta2, ...)
+activate TestDetailsFragment
+TestDetailsFragment --> user: Respuestas enviadas exitosamente
+deactivate TestDetailsFragment
+
+user -> TestDetailsFragment: verResultado()
+activate TestDetailsFragment
+TestDetailsFragment --> user: Mostrar resultado final del test
+deactivate TestDetailsFragment
+
+== Eliminar Test ==
+user -> TestDetailsFragment: eliminarTest(testSeleccionado)
+activate TestDetailsFragment
+TestDetailsFragment --> user: Test eliminado exitosamente
+deactivate TestDetailsFragment
+
+== Ver Detalles de test creados y terminados (Si ha iniciado sesión) ==
+user -> UserDataFragment: verDetallesUsuario()
+activate UserDataFragment
+UserDataFragment --> user: Mostrar detalles del usuario y tests creados
+deactivate UserDataFragment
+
+
+
+@enduml

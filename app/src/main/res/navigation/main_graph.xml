@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/creaTestFragment"
+        android:name="com.example.myexampleevaluatest.fragment.CreaTestFragment"
+        android:label="fragment_crea_test"
+        tools:layout="@layout/fragment_crea_test" >
+        <action
+            android:id="@+id/action_creaTestFragment_to_verTestFragment"
+            app:destination="@id/verTestFragment" />
+        <action
+            android:id="@+id/action_creaTestFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verTestFragment"
+        android:name="com.example.myexampleevaluatest.fragment.VerTestFragment"
+        android:label="fragment_ver_test"
+        tools:layout="@layout/fragment_ver_test" >
+        <action
+            android:id="@+id/action_verTestFragment_to_verdaderoFalsoFragment"
+            app:destination="@id/verdaderoFalsoFragment" />
+        <action
+            android:id="@+id/action_verTestFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_verTestFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myexampleevaluatest.fragment.HomeFragment"
+        android:label="homeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_creaTestFragment"
+            app:destination="@id/creaTestFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_expandFragment"
+            app:destination="@id/userPageDataFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_verdaderoFalsoFragment"
+            app:destination="@id/verdaderoFalsoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_testTypeFragment"
+            app:destination="@id/testTypeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_seleccionMultipleFragment"
+            app:destination="@id/seleccionMultipleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_userGuideFragment"
+            app:destination="@id/userGuideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userPageDataFragment"
+        android:name="com.example.myexampleevaluatest.fragment.UserDataFragment"
+        android:label="fragment_expand"
+        tools:layout="@layout/fragment_user_data" >
+        <action
+            android:id="@+id/action_expandFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_userPageDataFragment_to_userLogSingFragment"
+            app:destination="@id/userLogSingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verdaderoFalsoFragment"
+        android:name="com.example.myexampleevaluatest.fragment.VerdaderoFalsoFragment"
+        android:label="fragment_verdadero_falso"
+        tools:layout="@layout/fragment_true_false" >
+        <action
+            android:id="@+id/action_verdaderoFalsoFragment_to_verTestFragment"
+            app:destination="@id/verTestFragment" />
+        <action
+            android:id="@+id/action_verdaderoFalsoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_verdaderoFalsoFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testTypeFragment"
+        android:name="com.example.myexampleevaluatest.fragment.TestTypeFragment"
+        android:label="fragment_test_type"
+        tools:layout="@layout/fragment_test_type" >
+        <action
+            android:id="@+id/action_testTypeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seleccionMultipleFragment"
+        android:name="com.example.myexampleevaluatest.fragment.SeleccionMultipleFragment"
+        android:label="fragment_seleccion_multiple"
+        tools:layout="@layout/fragment_seleccion_multiple" >
+        <action
+            android:id="@+id/action_seleccionMultipleFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_seleccionMultipleFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.myexampleevaluatest.MainActivity"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/userLogSingFragment"
+        android:name="com.example.myexampleevaluatest.fragment.UserLogSingFragment"
+        android:label="UserLogSingFragment" >
+        <action
+            android:id="@+id/action_userLogSingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userGuideFragment"
+        android:name="com.example.myexampleevaluatest.fragment.UserGuideFragment"
+        android:label="UserGuideFragment" />
+</navigation>

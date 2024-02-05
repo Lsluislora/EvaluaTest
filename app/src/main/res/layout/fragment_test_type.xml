@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_layout"
+    tools:context=".fragment.TestTypeFragment"
+    android:id="@+id/idFragmentTestType">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRecViewTestType"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+    <ImageButton
+        android:id="@+id/idNextQuestionTT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="32dp"
+        android:background="@color/colorTransparent"
+        android:scaleX="2.0"
+        android:scaleY="2.0"
+        android:src="@drawable/ic_next"
+        android:text=""
+        android:visibility="invisible" />
+
+    <ImageButton
+        android:id="@+id/idBackQuestionTT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="32dp"
+        android:background="@color/colorTransparent"
+        android:scaleX="1.3"
+        android:scaleY="1.3"
+        android:src="@drawable/ic_back"
+        android:text=""
+        android:visibility="invisible" />
+
+
+
+    <Button
+        android:id="@+id/btnShowResultsTT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:text="Mostrar Resultados"
+        android:visibility="invisible" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewResultsTT"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/colorFinalResultCardView"
+        android:layout_height="match_parent"
+        android:outlineAmbientShadowColor="@color/black"
+        android:visibility="gone"
+        >
+        <!-- android:visibility="gone"-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvTitleResultTT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resultado del Test"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorText"
+                android:textSize="24sp"
+                android:layout_marginTop="150dp"
+                android:layout_centerHorizontal="true" />
+
+            <!-- Barra de progreso para respuestas correctas -->
+            <ProgressBar
+                android:id="@+id/progressBarFinalCorrectTT"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:progressTint="@color/colorProgressCorrectAnswer"
+                android:max="100"
+                android:progress="0"
+                android:layout_centerHorizontal="true" />
+
+            <!-- Texto para mostrar el número de respuestas correctas -->
+            <TextView
+                android:id="@+id/tvCorrectCountTT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progressBarFinalCorrectTT"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Has acertado"/>
+
+            <!-- Barra de progreso para respuestas incorrectas -->
+            <ProgressBar
+                android:id="@+id/progressBarFinalIcorrectTT"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvCorrectCountTT"
+                android:layout_marginTop="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:progressTint="@color/colorProgressIncorrectAnswer"
+                android:max="100"
+                android:progress="0"
+                android:layout_centerHorizontal="true" />
+
+            <!-- Texto para mostrar el número de respuestas incorrectas -->
+            <TextView
+                android:id="@+id/tvIncorrectCountTT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progressBarFinalIcorrectTT"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Has equivocado"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

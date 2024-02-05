@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/page_create"
+        android:icon="@drawable/nav_icon_create"
+        android:title="@string/bottom_nav_create_test" />
+    <item
+        android:id="@+id/page_home"
+        android:icon="@drawable/nav_icon_home"
+        android:title="@string/bottom_nav_home" />
+
+    <item
+        android:id="@+id/page_list_test"
+        android:icon="@drawable/nav_icon_list"
+        android:title="@string/bottom_nav_list" />
+
+    <item
+        android:id="@+id/page_user"
+        android:icon="@drawable/nav_icon_user"
+        android:title="@string/bottom_nav_user" />
+</menu>

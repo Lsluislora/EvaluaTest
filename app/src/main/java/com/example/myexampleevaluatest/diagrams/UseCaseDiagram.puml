@@ -1,0 +1,51 @@
+@startuml
+left to right direction
+
+actor Usuario as user
+
+usecase "Iniciar Aplicación" as UC1
+usecase "Acceder al Home" as UC2
+usecase "Ver Datos de Usuario" as UC3
+usecase "Editar Datos de Usuario" as UC4
+usecase "Guardar Datos de Usuario" as UC5
+usecase "Cerrar Sesión" as UC6
+usecase "Crear Test sin Registro" as UC7
+usecase "Crear Test Registrado" as UC8
+usecase "Configurar Test" as UC9
+usecase "Seleccionar Tipo de Test" as UC10
+usecase "Crear Preguntas del Test" as UC11
+usecase "Guardar Test" as UC12
+usecase "Ver Lista de Test" as UC13
+usecase "Ver Detalles del Test" as UC14
+usecase "Iniciar Test" as UC15
+usecase "Responder Preguntas del Test" as UC16
+usecase "Ver Resultado del Test" as UC17
+usecase "Eliminar Test" as UC18
+usecase "Iniciar Sesión" as UC19
+usecase "Iniciar Sesión con Datos Guardados" as UC20
+usecase "Crear Cuenta" as UC21
+
+user --> UC1
+UC1 --> UC2 : <<include>>
+UC2 --> UC3 : <<include>>
+UC3 --> UC4 : <<include>>
+UC4 --> UC5 : <<include>>
+UC3 --> UC6 : <<include>>
+UC2 --> UC7 : <<include>>
+UC7 --> UC9 : <<include>>
+UC9 --> UC10 : <<include>>
+UC10 --> UC11 : <<include>>
+UC11 --> UC12 : <<include>>
+UC2 --> UC8 : <<include>>
+UC8 --> UC13 : <<include>>
+UC13 --> UC14 : <<include>>
+UC14 --> UC15 : <<include>>
+UC15 --> UC16 : <<include>>
+UC16 --> UC17 : <<include>>
+UC13 --> UC18 : <<include>>
+UC2 --> UC19 : <<include>>
+UC19 --> UC20 : <<include>>
+UC19 --> UC21 : <<include>>
+
+@enduml
+

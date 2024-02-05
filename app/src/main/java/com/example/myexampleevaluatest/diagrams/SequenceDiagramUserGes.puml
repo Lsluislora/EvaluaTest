@@ -1,0 +1,55 @@
+@startuml
+actor Usuario as user
+
+activate user
+
+== Ver Datos de Usuario (No Inició Sesión) ==
+user -> HomeFragment: verDatosDeUsuario()
+activate HomeFragment
+HomeFragment --> user: Mostrar mensaje de no inicio de sesión
+deactivate HomeFragment
+
+== Iniciar Sesión ==
+user -> LoginActivity: iniciarSesion()
+activate LoginActivity
+LoginActivity --> user: Mostrar formulario de inicio de sesión
+deactivate LoginActivity
+
+user -> LoginActivity: enviarCredenciales(usuario, contraseña)
+activate LoginActivity
+LoginActivity --> user: Inicio de sesión exitoso
+deactivate LoginActivity
+
+user -> HomeFragment: actualizarVistaUsuario(usuario)
+activate HomeFragment
+HomeFragment --> user: Mostrar datos del usuario
+deactivate HomeFragment
+
+== Modificar Datos del Usuario (Si ha iniciado sesión) ==
+user -> HomeFragment: modificarDatosDeUsuario()
+activate HomeFragment
+HomeFragment --> user: Mostrar formulario de modificación de datos
+deactivate HomeFragment
+
+user -> HomeFragment: guardarCambios(usuario, nuevaContraseña, nuevoCorreo)
+activate HomeFragment
+HomeFragment --> user: Cambios guardados exitosamente
+deactivate HomeFragment
+
+== Cerrar Sesión (Si ha iniciado sesión) ==
+user -> HomeFragment: cerrarSesion()
+activate HomeFragment
+HomeFragment --> user: Mostrar mensaje de cierre de sesión
+deactivate HomeFragment
+
+user -> SessionManager: cerrarSesion()
+activate SessionManager
+SessionManager --> user: Sesión cerrada exitosamente
+deactivate SessionManager
+
+== Ver Detalles de Test (Si ha iniciado sesión) ==
+user -> HomeFragment: verDetallesDeTest()
+activate HomeFragment
+HomeFragment --> user: Mostrar detalles de test creados y terminados
+deactivate HomeFragment
+@enduml

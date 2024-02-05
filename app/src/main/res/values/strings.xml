@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">EvaluaTest</string>
+
+    <string name="bottom_nav_home">Inicio</string>
+    <string name="bottom_nav_fav">Favorito</string>
+    <string name="bottom_nav_create_test">Crear</string>
+    <string name="bottom_nav_list">Test</string>
+    <string name="bottom_nav_user">Usuario</string>
+
+    <!-- RadioButtons -->
+    <string name="idRadioGroupTrueFalseQuestions">RadioGroup</string>
+    <string name="rBtnTrue">Verdadero</string>
+    <string name="rBtnFalse">Falso</string>
+
+
+    <!-- Categorias de test -->
+    <string-array name="spinner_test_category">
+        <item>Selecciona la Categoria</item>
+        <item>Arte</item>
+        <item>Ciencia</item>
+        <item>Cine y TV</item>
+        <item>Deportes</item>
+        <item>Geografía</item>
+        <item>Historia</item>
+        <item>Idiomas</item>
+        <item>Informática</item>
+        <item>Letras</item>
+        <item>Matemáticas</item>
+        <item>Musica</item>
+        <item>Ocio</item>
+        <item>Oposiciones</item>
+        <item>Otros</item>
+        <item>Personal</item>
+        <item>Personalidad</item>
+        <item>Psicotécnicos</item>
+        <item>Test de conducir</item>
+        <item>Universidad</item>
+    </string-array>
+
+    <!-- tipos de test -->
+    <string-array name="spinner_test_type">
+        <item>Selecciona el tipo de Test</item>
+        <item>Verdadero y Falso</item>
+        <item>Seleccion Multiple</item>
+        <item>Tipo Test</item>
+
+    </string-array>
+
+    <!-- descripciones generales-->
+
+    <string name="like_button_description">Guardar Test</string>
+    <string name="delete_button_description">Eliminar Test</string>
+
+
+</resources>
+

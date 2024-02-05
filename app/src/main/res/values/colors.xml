@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#393E46</color>
+    <color name="primaryDark">#222831</color>
+    <color name="mint">#00ADB5</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0000ff</color>
+    <color name="green">#11ED35</color>
+    <color name="purple">#C62AFF</color>
+    <color name="blue_dos">#1DB4EF</color>
+    <color name="darker_gray">#6A6A6A</color>
+    <color name="red">#FF4964</color>
+    <color name="orange">#e4717a</color>
+    <color name="green_dos">#3ab8b0</color>
+
+    <!-- Colores Tema Claro -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorText">#000000</color>
+    <color name="colorAccent">#b894ff</color>
+    <color name="background_layout">#FFFFFF</color>
+    <color name="background_layout_user_data">#63C9FF</color>
+
+    <!-- Colors for profile -->
+
+    <color name="user_data_headings">#63C9FF</color>
+    <color name="solidCircle">#AAFFFFFF</color>
+    <color name="circleBorder">#50FFFFFF</color>
+    <color name="gradEnd">#67EFC8</color>
+    <color name="gradStart">#63C9FF</color>
+    <color name="user_data_button">#5b5e8a</color>
+
+    <!-- Colors for progressBar -->
+    <color name="colorProgress">#FF4081</color>
+    <color name="colorProgressBackground">#C0C0C0</color>
+    <color name="colorProgressCorrectAnswer">#44AF55</color>
+    <color name="colorProgressIncorrectAnswer">#DC1D43</color>
+
+
+    <!-- Definir un color transparente con un canal alfa de 50 (80 en hexadecimal) -->
+    <color name="colorTransparent">#80b3aceb</color>
+    <color name="colorTintQuestionsCardView">#b3aceb</color>
+    <color name="colorFinalResultCardView">#b3aceb</color>
+
+
+</resources>
+

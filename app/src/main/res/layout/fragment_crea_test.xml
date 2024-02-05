@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/idCreaTestFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_layout"
+
+    tools:context=".fragment.CreaTestFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- INICIO CARDVIEW DE CONFIGURACION DEL TEST-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/idCardViewTestConf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.021">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Configuracion del Test"
+                        android:textColor="@color/colorText"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+
+                    <EditText
+                        android:id="@+id/idEdtCourseName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="Introduce el Titulo del Test" />
+
+
+                    <EditText
+                        android:id="@+id/idEdtNumberOfQuestions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="Introduce la cantidad de preguntas" />
+
+                    <!--Spinner to enter Category-->
+
+                    <Spinner
+                        android:id="@+id/spnCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="10sp"
+                        android:background="@drawable/spinner_bg"
+                        android:outlineSpotShadowColor="@color/colorText"
+                        android:tooltipText="Categoria" />
+
+                    <Spinner
+                        android:id="@+id/spnTypeTest"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="10sp"
+                        android:background="@drawable/spinner_bg"
+                        android:outlineAmbientShadowColor="@color/colorText"
+                        android:tooltipText="Tipo de Test" />
+
+                    <!--edit text for course description-->
+                    <EditText
+                        android:id="@+id/idEdtCourseDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="Introduce la descripcion" />
+
+                    <EditText
+                        android:id="@+id/idUserID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="Introduce tu Usuario" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- FIN CARDVIEW DE CONF. DE TEST-->
+
+            <!-- INICIO CARDVIEW DE VERDADERO Y FALSO (TRUE/FALSE)-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/idCardViewQuestionTF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="50dp"
+                android:visibility="gone"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.021">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/headingQuestionTF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Crear Pregunta"
+                        android:textColor="@color/colorText"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/idTypeTestSubTF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progressBarTestType"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:text="(Falso y Verdadero)" />
+
+
+                    <EditText
+                        android:id="@+id/idEdtQuestionTF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="Pregunta"
+                        android:textStyle="bold"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/idRadioGroupQuestionsTF"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RadioButton
+
+                            android:id="@+id/rBtnTrueTF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Verdadero" />
+
+                        <RadioButton
+                            android:id="@+id/rBtnFalseTF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Falso" />
+                    </RadioGroup>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <Button
+                            android:id="@+id/idBtnDeleleQuestionTF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:text="Eliminar pregunta"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/idBtnAddNewQuestionTF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:text="Nueva Pregunta"
+                            android:textAllCaps="false" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- FIN CARDVIEW DE VERDADERO Y FALSO (TRUE/FALSE)-->
+
+
+            <!-- INICIO CARDVIEW DE SELECCION MULTIPLE-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/idCardViewQuestionSM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="50dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.021">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/headingQuestionSM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Crear Pregunta"
+                        android:textColor="@color/colorText"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/idTypeTestSubSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progressBarTestType"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:text="(Seleccion Multiple)" />
+
+                    <TextView
+                        android:id="@+id/idOptVerSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progressBarTestType"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="end"
+                        android:text="Verdadero"
+                        android:textSize="10dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <LinearLayout
+                            android:id="@+id/idLayoutViewQuestionSM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:id="@+id/idEdtQuestionSM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Pregunta"
+                                android:textStyle="bold"/>
+
+
+                            <EditText
+                                android:id="@+id/idEdtOptionOneSM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Opcion 1" />
+
+                            <EditText
+                                android:id="@+id/idEdtOptionTwoSM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Opcion 2" />
+
+                            <EditText
+                                android:id="@+id/idEdtOptionThreeSM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Opcion 3" />
+
+                            <EditText
+                                android:id="@+id/idEdtOptionFourSM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Opcion 4" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/choices_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingTop="38dp">
+
+
+                            <RadioGroup
+                                android:id="@+id/radioGroupChBx"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <CheckBox
+                                    android:id="@+id/idCBOptionOne"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingRight="30dp"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7" />
+
+                                <CheckBox
+                                    android:id="@+id/idCBOptionTwo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7" />
+
+                                <CheckBox
+                                    android:id="@+id/idCBOptionThree"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7" />
+
+                                <CheckBox
+                                    android:id="@+id/idCBOptionFour"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7" />
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <Button
+                            android:id="@+id/idBtnDeleleQuestionSM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_bg_ok"
+                            android:text="Limpiar datos"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/idBtnAddQuestionSM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/spinner_bg"
+                            android:text="Confirmar y guardar"
+                            android:textAllCaps="false" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- FIN CARDVIEW DE SELECCION MULTIPLE-->
+
+            <!-- INICIO CARDVIEW DE TEST TYPE-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/idCardViewQuestionTT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="50dp"
+
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.021">
+               <!-- android:visibility="gone" -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/headingQuestionTT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Crear Pregunta"
+                        android:textColor="@color/colorText"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/idTypeTestSubTT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progressBarTestType"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:text="(Tipo Test)" />
+
+                    <TextView
+                        android:id="@+id/idOptVerTT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progressBarTestType"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="end"
+                        android:text="Verdadero"
+                        android:textSize="10dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/idLayoutViewQuestionTT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/idEdtQuestionTT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Pregunta"
+                            android:textStyle="bold" />
+
+
+                        <EditText
+                            android:id="@+id/idEdtOptionOneTT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Opcion 1" />
+
+                        <EditText
+                            android:id="@+id/idEdtOptionTwoTT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Opcion 2" />
+
+                        <EditText
+                            android:id="@+id/idEdtOptionThreeTT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Opcion 3" />
+
+                        <EditText
+                            android:id="@+id/idEdtOptionFourTT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Opcion 4" />/>
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/choices_layoutTT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="38dp">
+
+
+                        <RadioGroup
+                            android:id="@+id/radioGroupChBxTT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <RadioButton
+                                android:id="@+id/idCBOptionOneTT"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="30dp"
+                                android:scaleX="0.7"
+                                android:scaleY="0.7" />
+
+                            <RadioButton
+                                android:id="@+id/idCBOptionTwoTT"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleX="0.7"
+                                android:scaleY="0.7" />
+
+                            <RadioButton
+                                android:id="@+id/idCBOptionThreeTT"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleX="0.7"
+                                android:scaleY="0.7" />
+
+                            <RadioButton
+                                android:id="@+id/idCBOptionFourTT"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleX="0.7"
+                                android:scaleY="0.7" />
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <Button
+                            android:id="@+id/idBtnDeleleQuestionTT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_bg_ok"
+                            android:text="Eliminar pregunta"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/idBtnAddQuestionTT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/spinner_bg"
+                            android:text="Nueva Pregunta"
+                            android:textAllCaps="false" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- FIN CARDVIEW DE TEST TIPE-->
+
+
+            <LinearLayout
+                android:id="@+id/idLYForNewQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!--button for adding new course-->
+                <Button
+                    android:id="@+id/idBtnAddCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Agregar Test"
+                    android:textAllCaps="false" />
+
+                <!--new button for opening our course list activity-->
+                <Button
+                    android:id="@+id/idBtnReadCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Ver todos los Test"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,42 @@
+@startuml
+actor Usuario as user
+
+activate user
+
+== Iniciar Aplicación ==
+user -> MainActivity: iniciarApp()
+activate MainActivity
+MainActivity --> user: HomeFragment
+deactivate MainActivity
+
+== Acceder al Home ==
+user -> HomeFragment: accederAlHome()
+activate HomeFragment
+HomeFragment --> user: Muestra Home con opciones
+deactivate HomeFragment
+
+== Verificación de Sesión ==
+user -> SessionManager: isLoggedIn()
+activate SessionManager
+SessionManager --> user: Estado de inicio de sesión (true/false)
+deactivate SessionManager
+
+== Manejo de Sesión (No Inició Sesión) ==
+user -> LoginActivity: iniciarSesion()
+activate LoginActivity
+LoginActivity --> user: Mostrar formulario de inicio de sesión
+deactivate LoginActivity
+
+user -> LoginActivity: enviarCredenciales(usuario, contraseña)
+activate LoginActivity
+LoginActivity --> SessionManager: guardarCredenciales(usuario, contraseña)
+activate SessionManager
+SessionManager --> LoginActivity: Inicio de sesión exitoso
+deactivate SessionManager
+deactivate LoginActivity
+
+user -> HomeFragment: actualizarVistaUsuario(usuario)
+activate HomeFragment
+HomeFragment --> user: Mostrar datos del usuario
+deactivate HomeFragment
+@enduml

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/idCardViewTrueFalseQuestions"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="4dp"
+    android:backgroundTint="@color/colorTintQuestionsCardView"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/idLayoutSM"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/progressBarSelMul"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="16dp"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="@color/colorProgress"
+                android:progressBackgroundTint="@color/colorProgressBackground"/>
+
+            <TextView
+                android:id="@+id/progressTextSelMul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progressBarTestType"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="0/0 preguntas respondidas" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/idQuestionSM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/choices_layout"
+            android:layout_marginTop="50sp"
+            android:text="Esta será la pregunta"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/iconResultCorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_ok_answer" />
+
+            <ImageView
+                android:id="@+id/iconResultIncorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iconResultCorrect"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-191dp"
+                android:visibility="gone"
+                android:scaleX="0.4"
+                android:scaleY="0.4"
+                app:srcCompat="@drawable/ic_incorrect_answer" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/choices_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idCBOptionOneSM"
+                android:text="Option 1"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idCBOptionTwoSM"
+                android:text="Option 2"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idCBOptionThreeSM"
+                android:text="Option 3"/>
+
+
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idCBOptionFourSM"
+                android:text="Option 4" />
+
+
+
+            <Button
+                android:id="@+id/idBtnConfirmSelecctionSM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/spinner_bg"
+                android:text="Confirmar Seleccion"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
